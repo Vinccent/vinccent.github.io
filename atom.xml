@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-07-17T16:38:55.698Z</updated>
+  <updated>2018-07-18T03:00:15.705Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://yoursite.com/2018/07/17/HomeBrew%E9%99%8D%E7%BA%A7%E5%AE%89%E8%A3%85python/"/>
     <id>http://yoursite.com/2018/07/17/HomeBrew降级安装python/</id>
     <published>2018-07-17T15:00:14.735Z</published>
-    <updated>2018-07-17T16:38:55.698Z</updated>
+    <updated>2018-07-18T03:00:15.705Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="HomeBrew降级安装软件方法（以python为例子）"><a href="#HomeBrew降级安装软件方法（以python为例子）" class="headerlink" title="HomeBrew降级安装软件方法（以python为例子）"></a>HomeBrew降级安装软件方法（以python为例子）</h2><p>The style guidelines and best practices for our engineering team.</p><ol><li>cd 到目录里面 <code>cd $(brew --repository)/Library/Taps/homebrew/homebrew-core</code></li><li>由于空间的限制，直接输入 <code>brew log python</code>  如果想要找到更久之前的版本，就需要执行 <code>git -C &quot;$(brew --repo homebrew/core)&quot; fetch --unshallow</code> </li><li><p>找到自己想要的版本对应的<code>git</code>版本号，如</p><p> commit e128fa1bce3377de32cbf11bd8e46f7334dfd7a6<br> Author: BrewTestBot <a href="mailto:brew-test-bot@googlegroups.com" target="_blank" rel="noopener">brew-test-bot@googlegroups.com</a><br> Date: Wed Apr 25 16:29:46 2018 +0000<br> python: update 3.6.5 bottle.</p></li></ol><p>那么 <code>commit</code> 后面这一部分就是 <code>git</code> 版本号</p><ol start="4"><li><p>输入 <code>git checkout -b python-3.6.5 5a6fed6bb7c0730db712f50fba4e7537d58ae755</code>  即可将版本转换为3.6.5</p></li><li><p>输入 <code>brew install python</code> 开始安装python3.6.5</p></li><li><p>锁定版本：<code>brew pin python</code> 解锁版本： <code>brew unpin python</code></p></li></ol><h2 id="新问题"><a href="#新问题" class="headerlink" title="新问题"></a>新问题</h2><p>该方法安装的 <code>python</code> 无法使用 <code>pip3</code> 指令，解决方法如下所示：</p><ol><li><a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">https://bootstrap.pypa.io/get-pip.py</a> 打开链接，将文本存到本地，命名为get_pip.py. 然后通过已经安装的python3解释执行这个文件： </li><li>之后创建软连接到 usr/local/bin </li></ol><p>具体指令为：<code>ln -s /usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/bin/pip3 /usr/local/bin/</code></p><ol start="3"><li>重启 <code>Terminal</code> 即可</li></ol>]]></content>
+    <content type="html"><![CDATA[<h2 id="HomeBrew降级安装软件方法（以python为例子）"><a href="#HomeBrew降级安装软件方法（以python为例子）" class="headerlink" title="HomeBrew降级安装软件方法（以python为例子）"></a>HomeBrew降级安装软件方法（以python为例子）</h2><ol><li>cd 到目录里面 <code>cd $(brew --repository)/Library/Taps/homebrew/homebrew-core</code></li><li>由于空间的限制，直接输入 <code>brew log python</code>  如果想要找到更久之前的版本，就需要执行<br><code>git -C &quot;$(brew --repo homebrew/core)&quot; fetch --unshallow</code> </li><li><p>找到自己想要的版本对应的<code>git</code>版本号，如<br> <code>commit e128fa1bce3377de32cbf11bd8e46f7334dfd7a6</code><br> <code>Author: BrewTestBot [brew-test-bot@googlegroups.com](mailto:brew-test-bot@googlegroups.com)</code><br> <code>Date: Wed Apr 25 16:29:46 2018 +0000</code><br> <code>python: update 3.6.5 bottle.</code></p><p> 那么 <code>commit</code> 后面这一部分就是 <code>git</code> 版本号</p></li><li>输入 <code>git checkout -b python-3.6.5 5a6fed6bb7c0730db712f50fba4e7537d58ae755</code>  即可将版本转换为3.6.5</li><li>输入 <code>brew install python</code> 开始安装 python3.6.5</li><li>锁定版本：<code>brew pin python</code> 解锁版本： <code>brew unpin python</code></li></ol><h2 id="新问题"><a href="#新问题" class="headerlink" title="新问题"></a>新问题</h2><p>该方法安装的 <code>python</code> 无法使用 <code>pip3</code> 指令，解决方法如下所示：</p><ol><li>打开链接<a href="https://bootstrap.pypa.io/get-pip.py" target="_blank" rel="noopener">https://bootstrap.pypa.io/get-pip.py</a> ，将文本存到本地，命名为<code>get_pip.py</code>. 然后通过已经安装的 python3 解释执行这个文件： </li><li>之后创建软连接到 usr/local/bin 具体指令为：<code>ln -s /usr/local/Cellar/python3/3.5.0/Frameworks/Python.framework/Versions/3.5/bin/pip3 /usr/local/bin/</code></li><li>重启 <code>Terminal</code> 即可</li></ol>]]></content>
     
     <summary type="html">
     
